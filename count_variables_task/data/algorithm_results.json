@@ -1,0 +1,702 @@
+[
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 1,
+            "text": "print(\"Hello, World!\")"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 2,
+            "text": "fruits = [\"apple\", \"banana\", \"cherry\"]\nfor fruit in fruits:\n    print(fruit)"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 3,
+            "text": "def greet(name):\n    return f\"Hello, {name}!\"\nprint(greet(\"Alice\"))"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 4,
+            "text": "student = {\"name\": \"John\", \"age\": 20}\nprint(student[\"name\"])"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 5,
+            "text": "x = 10\nif x > 5:\n    print(\"x is greater than 5\")\nelse:\n    print(\"x is not greater than 5\")"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 6,
+            "text": "for i in range(5):\n    print(i)"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 7,
+            "text": "import math\nprint(math.sqrt(16))"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 8,
+            "text": "class Rectangle:\n    def __init__(self, width, height):\n        self.width = width\n        self.height = height\n\n    def area(self):\n        return self.width * self.height\n\nrectangle = Rectangle(4, 5)\nprint(rectangle.area())"
+        }
+    },
+    {
+        "result": "3",
+        "code_snippet": {
+            "snippet_id": 9,
+            "text": "numbers = [1, 2, 3, 4, 5]\nsquared_numbers = [n**2 for n in numbers]\nprint(squared_numbers)"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 10,
+            "text": "import re\ntext = \"Hello, World!\"\nmatch = re.search(\"Hello\", text)\nprint(match)"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 11,
+            "text": "x = 5\ny = 10\nprint(x + y)"
+        }
+    },
+    {
+        "result": "3",
+        "code_snippet": {
+            "snippet_id": 12,
+            "text": "list_1 = [1, 2, 3, 4, 5]\nlist_2 = [6, 7, 8, 9, 10]\njoined_list = list_1 + list_2\nprint(joined_list)"
+        }
+    },
+    {
+        "result": "3",
+        "code_snippet": {
+            "snippet_id": 13,
+            "text": "# a simple function that multiplies two numbers\ndef multiply(a, b):\n    return a * b\n\nx = 5\ny = 10\nresult = multiply(x, y)\nprint(result)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 14,
+            "text": "dict_obj = {'name': 'John', 'age': 30, 'country': 'USA'}\nprint(dict_obj)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 15,
+            "text": "class Car:\n    def __init__(self, color, year):\n        self.color = color\n        self.year = year\n\nmy_car = Car('red', 2010)\nprint(my_car.color)\nprint(my_car.year)"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 16,
+            "text": "try:\n    user_input = int(input(\"Enter a number: \"))\n    result = 10 / user_input\n    print(result)\nexcept ValueError:\n    print(\"Invalid input. Please enter a number.\")"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 17,
+            "text": "numbers_list = [10, 20, 30, 40, 50]\nfor num in numbers_list:\n    print(num)"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 18,
+            "text": "import math\nnumber = 9\nsqrt_number = math.sqrt(number)\nprint(sqrt_number)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 19,
+            "text": "import random\nrand_number = random.randint(1, 100)\nprint(rand_number)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 20,
+            "text": "import requests\nresponse = requests.get('https://httpbin.org/ip')\nprint(response.text)"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 21,
+            "text": "import pandas as pd"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 22,
+            "text": "def greet(name):\n    print(f'Hello, {name}!')"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 23,
+            "text": "for i in range(10):\n    print(i)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 24,
+            "text": "person = {'name': 'John', 'age': 30, 'city': 'New York'}"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 25,
+            "text": "x = 10\nif x > 5:\n    print(\"x is greater than 5\")"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 26,
+            "text": "try:\n    x = int(input(\"Enter a number: \"))\nexcept ValueError:\n    print(\"Invalid input!\")"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 27,
+            "text": "numbers = [i for i in range(10) if i % 2 == 0]"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 28,
+            "text": "multiply = lambda x: x * 2"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 29,
+            "text": "for i, char in enumerate('hello'):\n    print(i, char)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 30,
+            "text": "df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})\nprint(df)"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 31,
+            "text": "import pandas as pd"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 32,
+            "text": "def greet(name):\n    print(f'Hello, {name}!')"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 33,
+            "text": "for i in range(10):\n    print(i)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 34,
+            "text": "person = {'name': 'John', 'age': 30, 'city': 'New York'}"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 35,
+            "text": "x = 10\nif x > 5:\n    print(\"x is greater than 5\")"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 36,
+            "text": "try:\n    x = int(input(\"Enter a number: \"))\nexcept ValueError:\n    print(\"Invalid input!\")"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 37,
+            "text": "numbers = [i for i in range(10) if i % 2 == 0]"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 38,
+            "text": "multiply = lambda x: x * 2"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 39,
+            "text": "for i, char in enumerate('hello'):\n    print(i, char)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 40,
+            "text": "df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})\nprint(df)"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 41,
+            "text": "import pandas as pd"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 42,
+            "text": "def greet(name):\n    print(f'Hello, {name}!')"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 43,
+            "text": "for i in range(10):\n    print(i)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 44,
+            "text": "person = {'name': 'John', 'age': 30, 'city': 'New York'}"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 45,
+            "text": "x = 10\nif x > 5:\n    print(\"x is greater than 5\")"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 46,
+            "text": "try:\n    x = int(input(\"Enter a number: \"))\nexcept ValueError:\n    print(\"Invalid input!\")"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 47,
+            "text": "numbers = [i for i in range(10) if i % 2 == 0]"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 48,
+            "text": "multiply = lambda x: x * 2"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 49,
+            "text": "for i, char in enumerate('hello'):\n    print(i, char)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 50,
+            "text": "df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})\nprint(df)"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 51,
+            "text": "import pandas as pd"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 52,
+            "text": "def greet(name):\n    print(f'Hello, {name}!')"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 53,
+            "text": "for i in range(10):\n    print(i)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 54,
+            "text": "person = {'name': 'John', 'age': 30, 'city': 'New York'}"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 55,
+            "text": "x = 10\nif x > 5:\n    print(\"x is greater than 5\")"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 56,
+            "text": "try:\n    x = int(input(\"Enter a number: \"))\nexcept ValueError:\n    print(\"Invalid input!\")"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 57,
+            "text": "numbers = [i for i in range(10) if i % 2 == 0]"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 58,
+            "text": "multiply = lambda x: x * 2"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 59,
+            "text": "for i, char in enumerate('hello'):\n    print(i, char)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 60,
+            "text": "df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})\nprint(df)"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 61,
+            "text": "import pandas as pd"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 62,
+            "text": "def greet(name):\n    print(f'Hello, {name}!')"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 63,
+            "text": "for i in range(10):\n    print(i)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 64,
+            "text": "person = {'name': 'John', 'age': 30, 'city': 'New York'}"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 65,
+            "text": "x = 10\nif x > 5:\n    print(\"x is greater than 5\")"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 66,
+            "text": "try:\n    x = int(input(\"Enter a number: \"))\nexcept ValueError:\n    print(\"Invalid input!\")"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 67,
+            "text": "numbers = [i for i in range(10) if i % 2 == 0]"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 68,
+            "text": "multiply = lambda x: x * 2"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 69,
+            "text": "for i, char in enumerate('hello'):\n    print(i, char)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 70,
+            "text": "df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})\nprint(df)"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 71,
+            "text": "import pandas as pd"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 72,
+            "text": "def greet(name):\n    print(f'Hello, {name}!')"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 73,
+            "text": "for i in range(10):\n    print(i)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 74,
+            "text": "person = {'name': 'John', 'age': 30, 'city': 'New York'}"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 75,
+            "text": "x = 10\nif x > 5:\n    print(\"x is greater than 5\")"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 76,
+            "text": "try:\n    x = int(input(\"Enter a number: \"))\nexcept ValueError:\n    print(\"Invalid input!\")"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 77,
+            "text": "numbers = [i for i in range(10) if i % 2 == 0]"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 78,
+            "text": "multiply = lambda x: x * 2"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 79,
+            "text": "for i, char in enumerate('hello'):\n    print(i, char)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 80,
+            "text": "df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})\nprint(df)"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 81,
+            "text": "import pandas as pd"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 82,
+            "text": "def greet(name):\n    print(f'Hello, {name}!')"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 83,
+            "text": "for i in range(10):\n    print(i)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 84,
+            "text": "person = {'name': 'John', 'age': 30, 'city': 'New York'}"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 85,
+            "text": "x = 10\nif x > 5:\n    print(\"x is greater than 5\")"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 86,
+            "text": "try:\n    x = int(input(\"Enter a number: \"))\nexcept ValueError:\n    print(\"Invalid input!\")"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 87,
+            "text": "numbers = [i for i in range(10) if i % 2 == 0]"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 88,
+            "text": "multiply = lambda x: x * 2"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 89,
+            "text": "for i, char in enumerate('hello'):\n    print(i, char)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 90,
+            "text": "df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})\nprint(df)"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 91,
+            "text": "import pandas as pd"
+        }
+    },
+    {
+        "result": "0",
+        "code_snippet": {
+            "snippet_id": 92,
+            "text": "def greet(name):\n    print(f'Hello, {name}!')"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 93,
+            "text": "for i in range(10):\n    print(i)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 94,
+            "text": "person = {'name': 'John', 'age': 30, 'city': 'New York'}"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 95,
+            "text": "x = 10\nif x > 5:\n    print(\"x is greater than 5\")"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 96,
+            "text": "try:\n    x = int(input(\"Enter a number: \"))\nexcept ValueError:\n    print(\"Invalid input!\")"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 97,
+            "text": "numbers = [i for i in range(10) if i % 2 == 0]"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 98,
+            "text": "multiply = lambda x: x * 2"
+        }
+    },
+    {
+        "result": "2",
+        "code_snippet": {
+            "snippet_id": 99,
+            "text": "for i, char in enumerate('hello'):\n    print(i, char)"
+        }
+    },
+    {
+        "result": "1",
+        "code_snippet": {
+            "snippet_id": 100,
+            "text": "df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})\nprint(df)"
+        }
+    }
+]
