@@ -17,6 +17,10 @@ class GigaChatExecutor:
             SystemMessage(content=system_message),
             HumanMessage(content=user_message),
         ]
-        result = self._chat(messages)
+        try:
+            result = self._chat(messages)
+            return result.content
+        except:
+            print(user_message)
+            return "400 Error"
 
-        return result.content

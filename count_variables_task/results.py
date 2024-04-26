@@ -1,29 +1,39 @@
 import pprint
-
-from pydantic import BaseModel
+from typing import Callable
 
 import dependencies
 from ast_utils import get_by_tree_sitter, py_tree_sitter_json_extension
-from count_variables_task import config, parsers, variable_counter
+from count_variables_task import config, variable_counter
 from count_variables_task.models import OperationResult
 
 
-def get_algorithm_results() -> list[OperationResult]:
+def get_algorithm_results(code_snippet_getter: Callable, size: int = 100) -> list[OperationResult]:
     operation_results = []
+    cnt = 0
 
-    for code_snippet in parsers.get_code_snippets():
-        result = str(variable_counter.count_variable(code_snippet.text))
+    for code_snippet in code_snippet_getter():
+        try:
+            result = str(variable_counter.count_variable(code_snippet.text))
+        except:
+            continue
+
+        cnt += 1
         operation_results.append(
             OperationResult(result=result, code_snippet=code_snippet)
         )
 
+        if cnt == size:
+            break
+
     return operation_results
 
 
-def get_gigachat_wo_ast_results() -> list[OperationResult]:
+def get_gigachat_wo_ast_results(code_snippet_getter: Callable, size: int = 100) -> list[OperationResult]:
     operation_results = []
+    cnt = 0
 
-    for code_snippet in parsers.get_code_snippets():
+    for code_snippet in code_snippet_getter():
+        cnt += 1
         result = dependencies.get_gigachat().execute(
             system_message=config.SYSTEM_MESSAGE_WO_AST,
             user_message=config.USER_MESSAGE_WO_AST.format(
@@ -34,14 +44,18 @@ def get_gigachat_wo_ast_results() -> list[OperationResult]:
             OperationResult(result=result, code_snippet=code_snippet)
         )
 
+        if cnt == size:
+            break
+
     return operation_results
 
 
 def get_gigachat_w_json_ast_results(
+    code_snippet_getter: Callable,
     start: int = 0, end: int = 100
 ) -> list[OperationResult]:
     operation_results = []
-    code_snippets = parsers.get_code_snippets()
+    code_snippets = code_snippet_getter()
 
     for i in range(start, end):
         code_snippet = code_snippets[i]
@@ -66,10 +80,11 @@ def get_gigachat_w_json_ast_results(
 
 
 def get_gigachat_w_sexp_ast_results(
+    code_snippet_getter: Callable,
     start: int = 0, end: int = 100
 ) -> list[OperationResult]:
     operation_results = []
-    code_snippets = parsers.get_code_snippets()
+    code_snippets = code_snippet_getter()
 
     for i in range(start, end):
         code_snippet = code_snippets[i]

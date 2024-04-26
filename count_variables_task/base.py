@@ -1,6 +1,7 @@
 import json
 from collections import defaultdict
 from pathlib import Path
+from typing import Callable
 
 from count_variables_task import parsers, results
 from count_variables_task.models import OperationResult
@@ -16,20 +17,37 @@ def save_special_results(path: str, operation_results: list[OperationResult]) ->
 
 
 def save_all_results():
-    algorithm_results = results.get_algorithm_results()
+    algorithm_results = results.get_algorithm_results(parsers.get_code_snippets)
     save_special_results("data/algorithm_results.json", algorithm_results)
 
-    gigachat_wo_ast_results = results.get_gigachat_wo_ast_results()
+    gigachat_wo_ast_results = results.get_gigachat_wo_ast_results(parsers.get_code_snippets)
     save_special_results("data/gigachat_wo_ast_results.json", gigachat_wo_ast_results)
 
-    gigachat_w_json_ast_results = results.get_gigachat_w_json_ast_results()
+    gigachat_w_json_ast_results = results.get_gigachat_w_json_ast_results(parsers.get_code_snippets)
     save_special_results(
         "data/gigachat_w_json_ast_results.json", gigachat_w_json_ast_results
     )
 
-    get_gigachat_w_sexp_ast_results = results.get_gigachat_w_sexp_ast_results()
+    get_gigachat_w_sexp_ast_results = results.get_gigachat_w_sexp_ast_results(parsers.get_code_snippets)
     save_special_results(
         "data/gigachat_w_sexp_ast_results.json", get_gigachat_w_sexp_ast_results
+    )
+
+def save_all_results_hugging_face():
+    algorithm_results = results.get_algorithm_results(parsers.get_code_snippets)
+    save_special_results("data/algorithm_results.json", algorithm_results)
+
+    gigachat_wo_ast_results = results.get_gigachat_wo_ast_results(parsers.get_code_snippets_from_results)
+    save_special_results("hugging-face-data/gigachat_wo_ast_results.json", gigachat_wo_ast_results)
+
+    gigachat_w_json_ast_results = results.get_gigachat_w_json_ast_results(parsers.get_code_snippets_from_results)
+    save_special_results(
+        "hugging-face-data/gigachat_w_json_ast_results.json", gigachat_w_json_ast_results
+    )
+
+    get_gigachat_w_sexp_ast_results = results.get_gigachat_w_sexp_ast_results(parsers.get_code_snippets_from_results)
+    save_special_results(
+        "hugging-face-data/gigachat_w_sexp_ast_results.json", get_gigachat_w_sexp_ast_results
     )
 
 
@@ -52,18 +70,18 @@ def _calculate_accurancy(source: list[OperationResult], target: list[OperationRe
                 break
 
         try:
-            int(target_result.result)
+            int(target_result.result.strip())
         except:
             total -= 1
             continue
 
-        if int(source_result.result) != int(target_result.result):
+        if int(source_result.result.strip()) != int(target_result.result.strip()):
             mistakes += 1
 
-    return total - mistakes, mistakes, total, (total - mistakes) / total
+    return total - mistakes, mistakes, total, (total - mistakes) / total if total != 0 else "Undefined"
 
 
-def calculate_accurancy():
+def calculate_accurancy_1():
     algorithm_results = parsers.get_results("data/algorithm_results.json")
     gigachat_wo_ast_results = parsers.get_results("data/gigachat_wo_ast_results.json")
     gigachat_w_json_ast_results = parsers.get_results(
@@ -102,17 +120,46 @@ def calculate_accurancy():
 
     return total_results
 
-def save_total_accurancy_result(path: str = "result.txt"):
-    accurancy = calculate_accurancy()
-    result_path = Path(__file__).absolute().parents[0].joinpath(path)
+def calculate_accurancy_2():
+    algorithm_results = parsers.get_results("hugging-face-data/algorithm_results.json")
+    gigachat_wo_ast_results = parsers.get_results("hugging-face-data/gigachat_wo_ast_results.json")
+    gigachat_w_json_ast_results = parsers.get_results(
+        "hugging-face-data/gigachat_w_json_ast_results.json"
+    )
+    gigachat_w_sexp_ast_results = parsers.get_results(
+        "hugging-face-data/gigachat_w_sexp_ast_results.json"
+    )
 
-    table = PrettyTable(field_names=["vs_name", "correct", "mistakes", "total", "accurancy"])
+    total_results = defaultdict(list)
+    total_results["algo_vs_gigachat_wo_ast"] += [
+        *_calculate_accurancy(algorithm_results, gigachat_wo_ast_results)
+    ]
+    total_results["algo_vs_gigachat_w_json_ast"] += [
+        *_calculate_accurancy(algorithm_results, gigachat_w_json_ast_results)
+    ]
+    total_results["algo_vs_gigachat_w_sexp_ast"] += [
+        *_calculate_accurancy(algorithm_results, gigachat_w_sexp_ast_results)
+    ]
 
-    for vs_name, result in accurancy.items():
-        table.add_row([vs_name, *result])
-    
-    with open(result_path, "w") as result_file:
-        result_file.write(table.get_string())
+    return total_results
+
+def save_total_accurancy_result():
+    conf = [
+        (calculate_accurancy_1, "result.txt"),
+        (calculate_accurancy_2, "hugging-face-result.txt")
+    ]
+
+    for calc, path in conf:
+        accurancy = calc()
+        result_path = Path(__file__).absolute().parents[0].joinpath(path)
+
+        table = PrettyTable(field_names=["vs_name", "correct", "mistakes", "total", "accurancy"])
+
+        for vs_name, result in accurancy.items():
+            table.add_row([vs_name, *result])
+        
+        with open(result_path, "w") as result_file:
+            result_file.write(table.get_string())
 
 def main() -> None:
     save_total_accurancy_result()

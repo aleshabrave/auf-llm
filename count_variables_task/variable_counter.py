@@ -1,11 +1,8 @@
 import ast
 
-import astpretty
-
 
 def count_variable(code_snippet: str) -> int:
     actual_tree = ast.parse(code_snippet)
-    astpretty.pprint(actual_tree)
 
     variables = []
     module_variables = set()
