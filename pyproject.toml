@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "auf-llm"
+version = "0.1.0"
+description = "Framework for testing query's augmentation for LLMs"
+authors = ["a.smelik <aleshabrave@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+astpretty = "3.0.0"
+asttokens = "2.4.1"
+astunparse = "1.6.3"
+gigachain = "0.1.16"
+gigachain-community = "0.0.33.1"
+gigachain-core = "0.1.43.1"
+gigachain-text-splitters = "0.0.1"
+gigachat = "0.1.23"
+huggingface-hub = "0.22.2"
+langchain = "0.1.16"
+langchain-community = "0.0.34"
+langchain-core = "0.1.45"
+langchain-text-splitters = "0.0.1"
+lizard = "1.17.10"
+numpy = "1.26.4"
+openai = "1.23.2"
+pandas = "2.2.2"
+prettytable = "3.10.0"
+pydantic = "2.7.0"
+pydantic-settings = "2.2.1"
+pygraphviz = "1.12"
+python_graphs = "1.2.3"
+requests = "2.31.0"
+torch = "2.2.2"
+tree-sitter = "0.21.3"
+tree-sitter-languages = "1.10.2"
+tree-sitter-python = "0.21.0"
+
+
+[tool.poetry.dev-dependencies]
+black = "24.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

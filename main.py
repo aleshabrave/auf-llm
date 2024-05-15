@@ -1,5 +1,4 @@
-from count_variables_task import base
+from framework.tasks.cyclomatic_complexity import case_results, reports
 
-base.main()
-
-
+case_results.execute_case_results()
+reports.make()
