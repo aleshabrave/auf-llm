@@ -66,7 +66,7 @@ class PhiMiniExecutor(ExecutorInterface):
         return output[0]["generated_text"]
 
     def is_available_msg(
-        self, text: str, max_token_cnt: int = 5000
+        self, text: str, max_token_cnt: int = 2500
     ) -> tuple[bool, int]:
         token_cnt = self.get_token_cnt(text)
 
