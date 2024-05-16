@@ -29,10 +29,10 @@ class PhiMiniExecutor(ExecutorInterface):
 
     def __init__(self) -> None:
         self._tokenizer = AutoTokenizer.from_pretrained(
-            "microsoft/Phi-3-mini-128k-instruct"
+            "microsoft/Phi-3-mini-4k-instruct"
         )
         self._model = AutoModelForCausalLM.from_pretrained(
-            "microsoft/Phi-3-mini-128k-instruct",
+            "microsoft/Phi-3-mini-4k-instruct",
             device_map="cuda",
             torch_dtype="auto",
             trust_remote_code=True,
@@ -42,6 +42,12 @@ class PhiMiniExecutor(ExecutorInterface):
             model=self._model,
             tokenizer=self._tokenizer,
         )
+        self._generation_args: dict = {
+            "max_new_tokens": 20,
+            "return_full_text": False,
+            "temperature": 0.0,
+            "do_sample": False,
+        }
 
     def get_token_cnt(self, text: str) -> None:
         encoded_input = self._tokenizer(

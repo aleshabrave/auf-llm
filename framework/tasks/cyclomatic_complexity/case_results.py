@@ -72,7 +72,7 @@ MSGS: dict[tuple[ExecutorType, ConditionType, LanguageType], tuple[str, str]] = 
 
 EXECUTORS: dict[ExecutorType, ExecutorInterface] = {
     ExecutorType.YANDEX_GPT_LITE: dependencies.get_yandexgpt(),
-    ExecutorType.PHI_MINI: dependencies.get_phi_mini,
+    ExecutorType.PHI_MINI: dependencies.get_phi_mini(),
 }
 
 
@@ -119,9 +119,6 @@ def execute_case_results(save_dir: str = "data"):
             else:
                 ast_repr = None
 
-            system_msg = system_msg_temp.format(
-                code=code_snippet.text, ast_repr=ast_repr
-            )
             user_msg = user_msg_temp.format(code=code_snippet.text, ast_repr=ast_repr)
 
             is_available, token_cnt = executor.is_available_msg(user_msg)
@@ -129,11 +126,15 @@ def execute_case_results(save_dir: str = "data"):
             if not is_available:
                 continue
 
-            execute_result_text = executor.execute(system_msg, user_msg)
+            execute_result_text = executor.execute(system_msg_temp, user_msg)
             execute_results.append(
                 ExecuteResult(
                     code_snippet=code_snippet,
-                    system_msg=system_msg,
+                    system_msg=(
+                        system_msg_temp
+                        if not isinstance(system_msg_temp, list)
+                        else "%%%%".join(system_msg_temp)
+                    ),
                     user_msg=user_msg,
                     text=execute_result_text,
                     token_cnt=token_cnt,
