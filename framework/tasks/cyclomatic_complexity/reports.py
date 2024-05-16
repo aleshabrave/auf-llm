@@ -31,7 +31,6 @@ def make_relate(
             baseline_result = case_results.get_baseline_result(
                 execute_result.code_snippet
             )
-            source_code_snippet_ids.add(execute_result.code_snippet.id)
 
             execute_result_buff = []
 
@@ -45,12 +44,14 @@ def make_relate(
             if not execute_result_buff:
                 continue
 
+            source_code_snippet_ids.add(execute_result.code_snippet.id)
+
             execute_result_num = int("".join(execute_result_buff))
 
             if baseline_result != execute_result_num:
                 mistakes += 1
 
-            execute_result_sum += abs(execute_result_num - baseline_result)
+            execute_result_sum += min(abs(execute_result_num - baseline_result), 10)
 
             if 1 < abs(execute_result_num - baseline_result):
                 eps_1_mistakes += 1
@@ -136,7 +137,7 @@ def make_relate(
             if baseline_result != execute_result_num:
                 mistakes += 1
 
-            execute_result_sum += abs(execute_result_num - baseline_result)
+            execute_result_sum += min(abs(execute_result_num - baseline_result), 10)
 
             if 1 < abs(execute_result_num - baseline_result):
                 eps_1_mistakes += 1
@@ -234,7 +235,7 @@ def make_total(
             if baseline_result != execute_result_num:
                 mistakes += 1
 
-            execute_result_sum += abs(execute_result_num - baseline_result)
+            execute_result_sum += min(abs(execute_result_num - baseline_result), 10)
 
             if 1 < abs(execute_result_num - baseline_result):
                 eps_1_mistakes += 1

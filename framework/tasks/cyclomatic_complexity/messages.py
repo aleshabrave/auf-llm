@@ -102,18 +102,18 @@ After the first pair of ‘--’ characters the code will start, after the secon
 After the first pair of ‘**’ characters the AST representation will start, after the second pair of ‘**’ characters the AST representation will end.
 The AST tree represented in S-expression format.
 
-**
+--
 def array_sum(array):
     total = 0
     for item in array:
         total += item
     
     return total
-**
+--
 
---
+**
 (module (function_definition name: (identifier) parameters: (parameters (identifier)) body: (block (expression_statement (assignment left: (identifier) right: (integer))) (for_statement left: (identifier) right: (identifier) body: (block (expression_statement (augmented_assignment left: (identifier) right: (identifier))))) (return_statement (identifier)))))
---
+**
 """,
     """2""",
 ]
@@ -125,7 +125,7 @@ After the first pair of ‘--’ characters the code will start, after the secon
 After the first pair of ‘**’ characters the AST representation will start, after the second pair of ‘**’ characters the AST representation will end.
 The AST tree represented in S-expression format.
 
-**
+--
 class HelloWorld {
     public static int main(String[] args) {
         for (var i = 0; i < 1; i ++) {
@@ -134,11 +134,11 @@ class HelloWorld {
         return 1337;
     }
 }
-**
+--
 
---
+**
 (program (class_declaration name: (identifier) body: (class_body (method_declaration (modifiers) type: (integral_type) name: (identifier) parameters: (formal_parameters (formal_parameter type: (array_type element: (type_identifier) dimensions: (dimensions)) name: (identifier))) body: (block (for_statement init: (local_variable_declaration type: (type_identifier) declarator: (variable_declarator name: (identifier) value: (decimal_integer_literal))) condition: (binary_expression left: (identifier) right: (decimal_integer_literal)) update: (update_expression (identifier)) body: (block (local_variable_declaration type: (type_identifier) declarator: (variable_declarator name: (identifier) value: (decimal_integer_literal))))) (return_statement (decimal_integer_literal)))))))
---
+**
 """,
     """2""",
 ]
@@ -179,11 +179,11 @@ USER_MSG_FSP_W_SEXP_AST = """
 """
 
 USER_MSG_FSP_W_CODE_A_SEXP_AST = """
-**
-{ast_repr}
-**
-
 --
 {code}
 --
+
+**
+{ast_repr}
+**
 """

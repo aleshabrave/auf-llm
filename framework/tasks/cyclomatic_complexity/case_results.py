@@ -3,7 +3,7 @@ import os
 import tempfile
 import time
 from pathlib import Path
-from typing import Iterable, Optional
+from typing import Iterable
 
 import lizard
 
@@ -71,8 +71,8 @@ MSGS: dict[tuple[ExecutorType, ConditionType, LanguageType], tuple[str, str]] = 
 }
 
 EXECUTORS: dict[ExecutorType, ExecutorInterface] = {
-    ExecutorType.YANDEX_GPT_LITE: dependencies.get_yandexgpt(),
-    ExecutorType.PHI_MINI: dependencies.get_phi_mini(),
+    ExecutorType.YANDEX_GPT_LITE: dependencies.get_yandexgpt,
+    ExecutorType.PHI_MINI: dependencies.get_phi_mini,
 }
 
 
@@ -102,7 +102,7 @@ def execute_case_results(save_dir: str = "data"):
         if case.get_key() not in MSGS:
             continue
 
-        executor = EXECUTORS[case.executor]
+        executor = EXECUTORS[case.executor]()
         system_msg_temp, user_msg_temp = MSGS[case.get_key()]
 
         execute_results: list[ExecuteResult] = []

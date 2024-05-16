@@ -13,27 +13,21 @@ from executors.interface import ExecutorInterface
 
 
 @dataclass
-class PhiMiniExecutor(ExecutorInterface):
+class CcodeLlamaExecutor(ExecutorInterface):
 
     _pipe: Pipeline
     _tokenizer: PreTrainedTokenizerFast
-    _model: AutoModelForCausalLM
     _generation_args: dict
 
     def __init__(self) -> None:
-        self._tokenizer = AutoTokenizer.from_pretrained(
-            "microsoft/Phi-3-mini-4k-instruct"
-        )
-        self._model = AutoModelForCausalLM.from_pretrained(
-            "microsoft/Phi-3-mini-4k-instruct",
-            device_map="cuda",
-            torch_dtype="auto",
-            trust_remote_code=True,
-        )
+        model = "codellama/CodeLlama-7b-hf"
+        self._tokenizer = AutoTokenizer.from_pretrained(model)
+        self._model = AutoTokenizer.from_pretrained(model)
         self._pipe = pipeline(
             "text-generation",
-            model=self._model,
-            tokenizer=self._tokenizer,
+            model=model,
+            torch_dtype=torch.float16,
+            device_map="auto",
         )
         self._generation_args: dict = {
             "max_new_tokens": 20,
@@ -49,18 +43,18 @@ class PhiMiniExecutor(ExecutorInterface):
 
         return len(encoded_input["input_ids"][0])
 
-    def execute(self, system_message: list[str], user_message: str) -> str:
+    def execute(self, system_message: str, user_message: str) -> str:
         messages = [
             {
-                "role": "user",
-                "content": system_message[0],
+                "role": "system",
+                "content": system_message,
             },
             {
-                "role": "assistant",
-                "content": system_message[1],
+                "role": "user",
+                "content": user_message,
             },
-            {"role": "user", "content": user_message},
         ]
+
         print(messages)
         output = self._pipe(messages, **self._generation_args)
         return output[0]["generated_text"]
