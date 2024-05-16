@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 import torch
 from transformers import (
@@ -19,13 +19,15 @@ class PhiMiniExecutor(ExecutorInterface):
 
     _pipe: Pipeline
     _tokenizer: PreTrainedTokenizerFast
-    _generation_args: dict = {
-        "max_new_tokens": 20,
-        "return_full_text": False,
-        "temperature": 0.0,
-        "do_sample": False,
-    }
     _model: AutoModelForCausalLM
+    _generation_args: dict = field(
+        default_factory={
+            "max_new_tokens": 20,
+            "return_full_text": False,
+            "temperature": 0.0,
+            "do_sample": False,
+        }
+    )
 
     def __init__(self) -> None:
         self._tokenizer = AutoTokenizer.from_pretrained(

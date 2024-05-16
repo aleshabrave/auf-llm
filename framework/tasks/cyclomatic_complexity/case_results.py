@@ -45,13 +45,14 @@ MSGS: dict[tuple[ExecutorType, ConditionType, LanguageType], tuple[str, str]] = 
         messages.USER_MSG_W_CODE_A_SEXP_AST,
     ),
     (ExecutorType.PHI_MINI, ConditionType.ONLY_CODE, LanguageType.PYTHON): (
-        #messages.SYSTEM_MSG_W_JAVA_CODE_A_SEXP_AST,
-        #messages.USER_MSG_W_CODE_A_SEXP_AST,
+        messages.SYSTEM_MSG_W_JAVA_CODE_A_SEXP_AST,
+        messages.USER_MSG_W_CODE,
     ),
 }
 
 EXECUTORS: dict[ExecutorType, ExecutorInterface] = {
     ExecutorType.YANDEX_GPT_LITE: dependencies.get_yandexgpt(),
+    ExecutorType.PHI_MINI: dependencies.get_phi_mini(),
 }
 
 

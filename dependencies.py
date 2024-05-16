@@ -1,8 +1,8 @@
 from functools import lru_cache
 
 from executors.gigachat import GigaChatExecutor
-from executors.yandexgpt import YandexGPTExecutor
 from executors.phi_mini import PhiMiniExecutor
+from executors.yandexgpt import YandexGPTExecutor
 from settings import Settings
 
 
@@ -24,6 +24,7 @@ def get_yandexgpt() -> YandexGPTExecutor:
         folder_id=get_settings().yandex_gpt_folder_id,
         iam_token=get_settings().yandex_gpt_iam_token,
     )
+
 
 @lru_cache(maxsize=1)
 def get_phi_mini() -> PhiMiniExecutor:

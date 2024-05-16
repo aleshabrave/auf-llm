@@ -57,7 +57,7 @@ def get_cases() -> list[Case]:
         #     max_items=500,
         #     ast_repr_type=AstReprType.SEXP,
         #     execute_delay=1,
-        # ), Перезапустить, в прошлый раз был запуск на 10 примерах
+        # )
         Case(
             executor=ExecutorType.PHI_MINI,
             condition=ConditionType.ONLY_CODE,
