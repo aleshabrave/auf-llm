@@ -45,14 +45,34 @@ MSGS: dict[tuple[ExecutorType, ConditionType, LanguageType], tuple[str, str]] = 
         messages.USER_MSG_W_CODE_A_SEXP_AST,
     ),
     (ExecutorType.PHI_MINI, ConditionType.ONLY_CODE, LanguageType.PYTHON): (
-        messages.SYSTEM_MSG_W_JAVA_CODE_A_SEXP_AST,
-        messages.USER_MSG_W_CODE,
+        messages.SYSTEM_MSG_FSP_W_PYTHON_CODE,
+        messages.USER_MSG_FSP_W_CODE,
+    ),
+    (ExecutorType.PHI_MINI, ConditionType.ONLY_CODE, LanguageType.JAVA): (
+        messages.SYSTEM_MSG_FSP_W_JAVA_CODE,
+        messages.USER_MSG_FSP_W_CODE,
+    ),
+    (ExecutorType.PHI_MINI, ConditionType.ONLY_SEXP_AST, LanguageType.PYTHON): (
+        messages.SYSTEM_MSG_FSP_W_PYTHON_SEXP_AST,
+        messages.USER_MSG_FSP_W_SEXP_AST,
+    ),
+    (ExecutorType.PHI_MINI, ConditionType.ONLY_SEXP_AST, LanguageType.JAVA): (
+        messages.SYSTEM_MSG_FSP_W_JAVA_SEXP_AST,
+        messages.USER_MSG_FSP_W_SEXP_AST,
+    ),
+    (ExecutorType.PHI_MINI, ConditionType.CODE_W_SEXP_AST, LanguageType.PYTHON): (
+        messages.SYSTEM_MSG_FSP_W_PYTHON_CODE_A_SEXP_AST,
+        messages.USER_MSG_FSP_W_CODE_A_SEXP_AST,
+    ),
+    (ExecutorType.PHI_MINI, ConditionType.CODE_W_SEXP_AST, LanguageType.JAVA): (
+        messages.SYSTEM_MSG_FSP_W_JAVA_CODE_A_SEXP_AST,
+        messages.USER_MSG_FSP_W_CODE_A_SEXP_AST,
     ),
 }
 
 EXECUTORS: dict[ExecutorType, ExecutorInterface] = {
     ExecutorType.YANDEX_GPT_LITE: dependencies.get_yandexgpt(),
-    ExecutorType.PHI_MINI: dependencies.get_phi_mini(),
+    ExecutorType.PHI_MINI: dependencies.get_phi_mini,
 }
 
 

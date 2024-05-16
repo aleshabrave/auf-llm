@@ -1,4 +1,4 @@
-from framework.tasks.cyclomatic_complexity import case_results, reports
+from framework.tasks.cyclomatic_complexity import case_results
 
 case_results.execute_case_results()
 # reports.make_total()
