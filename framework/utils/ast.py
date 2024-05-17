@@ -49,4 +49,9 @@ def is_correct_code(code: str, language: LanguageType) -> bool:
     if not analysis_results.function_list:
         return False
 
+    ast_repr = get_ast_repr(AstReprType.SEXP, code, language)
+
+    if "ERROR" in ast_repr:
+        return False
+
     return True
